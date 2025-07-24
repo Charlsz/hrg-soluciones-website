@@ -4,7 +4,7 @@ import { MessageCircle } from 'lucide-react';
 const WhatsAppFloat: React.FC = () => {
   const handleWhatsAppClick = () => {
     window.open(
-      'https://web.whatsapp.com/send?phone=573185276273&text=Hola%20HRG%2C%20estoy%20revisando%20tu%20web%20y%20me%20gustar%C3%ADa%20ponerme%20en%20contacto%20para%20solicitar%20una%20cotizaci%C3%B3n.',
+      'https://wa.me/573185276273?text=Hola%20HRG%2C%20estoy%20revisando%20tu%20web%20y%20me%20gustar%C3%ADa%20ponerme%20en%20contacto%20para%20solicitar%20una%20cotizaci%C3%B3n.',
       '_blank'
     );
   };

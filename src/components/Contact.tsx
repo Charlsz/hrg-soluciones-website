@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
           
           <div className="mt-8">
             <button
-              onClick={() => window.open('https://web.whatsapp.com/send?phone=573185276273&text=Hola%20HRG%2C%20estoy%20revisando%20tu%20web%20y%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n%20personalizada.', '_blank')}
+              onClick={() => window.open('https://wa.me/573185276273?text=Hola%20HRG%2C%20estoy%20revisando%20tu%20web%20y%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n%20personalizada.', '_blank')}
               className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-300 active:scale-95"
               aria-label="Solicitar cotización por WhatsApp"
             >
