@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Facebook, Instagram } from 'lucide-react';
-import GoogleMapComponent from './GoogleMap';
+import OSMMap from './OSMMap';
 
 const Contact: React.FC = () => {
   return (
@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
             {/* Google Map */}
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">Nuestra Ubicación</h3>
-              <GoogleMapComponent />
+              <OSMMap />
             </div>
           </div>
         </div>
