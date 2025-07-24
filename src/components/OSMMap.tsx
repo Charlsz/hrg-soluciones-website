@@ -11,7 +11,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-// Coordenadas para Calle 31 #60-100, L 202, Cartagena, Bolívar, Colombia
+// Coordenadas exactas para Calle 31 #60-100, L 202, Cartagena, Bolívar, Colombia
 const position: [number, number] = [10.4037, -75.5144];
 
 const OSMMap: React.FC = () => {
@@ -32,7 +32,7 @@ const OSMMap: React.FC = () => {
             <div className="p-2">
               <h3 className="font-bold text-gray-800 mb-2">HRG Soluciones S.A.S.</h3>
               <p className="text-sm text-gray-600 mb-2">
-                Calle 31 #60-100, L 202<br />
+                <strong>Calle 31 #60-100, L 202</strong><br />
                 Cartagena, Bolívar<br />
                 Colombia
               </p>
