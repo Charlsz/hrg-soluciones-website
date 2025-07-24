@@ -4,7 +4,7 @@ import { FileText, Download, MessageCircle } from 'lucide-react';
 const CorporatePresentation: React.FC = () => {
   const handleWhatsAppRequest = () => {
     window.open(
-      'https://web.whatsapp.com/send?phone=573185276273&text=Hola%20HRG%2C%20me%20gustar%C3%ADa%20solicitar%20la%20presentaci%C3%B3n%20corporativa%20de%20sus%20servicios.%20Gracias.',
+      'https://wa.me/573185276273?text=Hola%20HRG%2C%20me%20gustar%C3%ADa%20solicitar%20la%20presentaci%C3%B3n%20corporativa%20de%20sus%20servicios.%20Gracias.',
       '_blank'
     );
   };

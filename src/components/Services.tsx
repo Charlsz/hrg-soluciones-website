@@ -126,7 +126,7 @@ const Services: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
-                onClick={() => window.open('https://web.whatsapp.com/send?phone=573185276273&text=Hola%20HRG%2C%20estoy%20revisando%20sus%20servicios%20y%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n.', '_blank')}
+                onClick={() => window.open('https://wa.me/573185276273?text=Hola%20HRG%2C%20estoy%20revisando%20sus%20servicios%20y%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n.', '_blank')}
                 className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-300 active:scale-95"
                 aria-label="Solicitar cotización por WhatsApp"
               >
@@ -266,7 +266,7 @@ const Services: React.FC = () => {
                       Contáctanos para una cotización personalizada y sin compromiso
                     </p>
                     <button
-                      onClick={() => window.open('https://web.whatsapp.com/send?phone=573185276273&text=Hola%20HRG%2C%20estoy%20interesado%20en%20sus%20servicios%20de%20' + encodeURIComponent(service.title.toLowerCase()) + '%20y%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n.', '_blank')}
+                      onClick={() => window.open('https://wa.me/573185276273?text=Hola%20HRG%2C%20estoy%20interesado%20en%20sus%20servicios%20de%20' + encodeURIComponent(service.title.toLowerCase()) + '%20y%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n.', '_blank')}
                       className="bg-white hover:bg-gray-100 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-300 active:scale-95"
                       aria-label={`Solicitar cotización para ${service.title}`}
                     >
