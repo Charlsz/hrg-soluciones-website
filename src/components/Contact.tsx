@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Facebook, Instagram } from 'lucide-react';
+import GoogleMapComponent from './GoogleMap';
 
 const Contact: React.FC = () => {
   return (
@@ -25,50 +26,58 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          {/* Contact Information */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Información de contacto</h3>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Contact Information */}
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Información de contacto</h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-yellow-100 p-2 rounded-lg">
+                    <MapPin className="h-5 w-5 text-yellow-600" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-800">Ubicación</p>
+                    <p className="text-gray-600">Calle 31 #60-100, L 202<br />Cartagena, Bolívar, Colombia</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="bg-yellow-100 p-2 rounded-lg">
+                    <Phone className="h-5 w-5 text-yellow-600" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-800">Teléfonos</p>
+                    <a href="tel:+573185276273" className="text-yellow-600 hover:text-yellow-700 block">
+                      +57 318 527 6273
+                    </a>
+                    <a href="tel:+573006523357" className="text-yellow-600 hover:text-yellow-700 block">
+                      +57 300 652 3357
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="bg-yellow-100 p-2 rounded-lg">
+                    <Mail className="h-5 w-5 text-yellow-600" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-800">Correos</p>
+                    <a href="mailto:administracion@hrgsoluciones.com" className="text-yellow-600 hover:text-yellow-700 block">
+                      administracion@hrgsoluciones.com
+                    </a>
+                    <a href="mailto:hrgcartagena@gmail.com" className="text-yellow-600 hover:text-yellow-700 block">
+                      hrgcartagena@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
             
-            <div className="space-y-4">
-              <div className="flex items-start space-x-4">
-                <div className="bg-yellow-100 p-2 rounded-lg">
-                  <MapPin className="h-5 w-5 text-yellow-600" />
-                </div>
-                <div>
-                  <p className="font-medium text-gray-800">Ubicación</p>
-                  <p className="text-gray-600">Calle 31 #60-100, L 202<br />Cartagena, Bolívar, Colombia</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="bg-yellow-100 p-2 rounded-lg">
-                  <Phone className="h-5 w-5 text-yellow-600" />
-                </div>
-                <div>
-                  <p className="font-medium text-gray-800">Teléfonos</p>
-                  <a href="tel:+573185276273" className="text-yellow-600 hover:text-yellow-700 block">
-                    +57 318 527 6273
-                  </a>
-                  <a href="tel:+573006523357" className="text-yellow-600 hover:text-yellow-700 block">
-                    +57 300 652 3357
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="bg-yellow-100 p-2 rounded-lg">
-                  <Mail className="h-5 w-5 text-yellow-600" />
-                </div>
-                <div>
-                  <p className="font-medium text-gray-800">Correos</p>
-                  <a href="mailto:administracion@hrgsoluciones.com" className="text-yellow-600 hover:text-yellow-700 block">
-                    administracion@hrgsoluciones.com
-                  </a>
-                  <a href="mailto:hrgcartagena@gmail.com" className="text-yellow-600 hover:text-yellow-700 block">
-                    hrgcartagena@gmail.com
-                  </a>
-                </div>
-              </div>
+            {/* Google Map */}
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Nuestra Ubicación</h3>
+              <GoogleMapComponent />
             </div>
           </div>
         </div>
