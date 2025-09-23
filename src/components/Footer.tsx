@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
           <div>
             <div className="flex items-center space-x-2 mb-6">
               <img 
-                src="/hrglogo.webp" 
+                src="/hrglogo.png" 
                 alt="HRG Soluciones Logo" 
                 className="h-10 w-auto"
               />
