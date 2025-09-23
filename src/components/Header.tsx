@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             className="flex items-center space-x-2"
           >
             <img 
-              src="/hrglogo.webp" 
+              src="/hrglogo.png" 
               alt="HRG Soluciones Logo" 
               className="h-10 w-auto"
             />
