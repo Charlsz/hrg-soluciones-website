@@ -1,13 +1,142 @@
 import React, { useState, useEffect } from 'react';
-import { Zap, HardHat, Lightbulb, Sun, CheckCircle } from 'lucide-react';
+import { Zap, HardHat, Lightbulb, Sun, CheckCircle, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Services: React.FC = () => {
   const [activeTab, setActiveTab] = useState('electrical');
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  // Gallery images from gallerywork folder
+  const galleryImages = [
+    'WhatsApp Image 2025-10-05 at 17.08.29.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.30 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.30.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.31 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.31 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.31 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.31.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.32 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.32 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.32 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.32 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.32.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.33 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.33 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.33 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.33 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.33.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.34 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.34 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.34 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.34 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.34 (5).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.34.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.35 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.35 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.35 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.35 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.35 (5).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.35 (6).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.35.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.36 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.36 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.36 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.36 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.36 (5).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.36.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.37 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.37 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.37 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.37 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.37 (5).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.37.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.38 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.38 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.38 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.38 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.38 (5).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.38 (6).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.38.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.39 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.39 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.39 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.39 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.39 (5).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.39.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.40 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.40 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.40 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.40 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.40 (5).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.40.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.41 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.41 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.41 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.41 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.41 (5).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.41.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.42 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.42 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.42 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.42 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.42 (5).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.42 (6).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.42.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.43 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.43 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.43 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.43 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.08.43.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.23.42.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.23.42 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.23.43.jpeg',
+    'WhatsApp Image 2025-10-05 at 17.23.43 (1).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.23.43 (2).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.23.43 (3).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.23.43 (4).jpeg',
+    'WhatsApp Image 2025-10-05 at 17.23.43 (5).jpeg',
+  ];
+
+  // Gallery functions
+  const openImageModal = (imageSrc: string, index: number) => {
+    setSelectedImage(imageSrc);
+    setCurrentImageIndex(index);
+  };
+
+  const closeImageModal = () => {
+    setSelectedImage(null);
+  };
+
+  const nextImage = () => {
+    const nextIndex = (currentImageIndex + 1) % galleryImages.length;
+    setCurrentImageIndex(nextIndex);
+    setSelectedImage(galleryImages[nextIndex]);
+  };
+
+  const prevImage = () => {
+    const prevIndex = currentImageIndex === 0 ? galleryImages.length - 1 : currentImageIndex - 1;
+    setCurrentImageIndex(prevIndex);
+    setSelectedImage(galleryImages[prevIndex]);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (selectedImage) {
+        if (e.key === 'Escape') closeImageModal();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [selectedImage, currentImageIndex]);
 
   const services = {
     electrical: {
@@ -279,6 +408,93 @@ const Services: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Gallery Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            {/* Gallery Header */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 font-poppins">
+                Galería de imágenes
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Conoce algunos de nuestros proyectos ejecutados y la calidad de nuestro trabajo
+              </p>
+            </div>
+
+            {/* Gallery Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {galleryImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+                  onClick={() => openImageModal(image, index)}
+                >
+                  <img
+                    src={`/gallerywork/${image}`}
+                    alt={`Proyecto HRG ${index + 1}`}
+                    className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <p className="text-sm font-semibold">Ver imagen</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+          <div className="relative max-w-4xl max-h-full">
+            {/* Close button */}
+            <button
+              onClick={closeImageModal}
+              className="absolute top-4 right-4 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-all duration-200"
+              aria-label="Cerrar imagen"
+            >
+              <X className="h-6 w-6" />
+            </button>
+
+            {/* Navigation buttons */}
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-all duration-200"
+              aria-label="Imagen anterior"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-all duration-200"
+              aria-label="Siguiente imagen"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Image */}
+            <img
+              src={`/gallerywork/${selectedImage}`}
+              alt={`Proyecto HRG ${currentImageIndex + 1}`}
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+
+            {/* Image counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-20 text-white px-4 py-2 rounded-full">
+              <span className="text-sm font-medium">
+                {currentImageIndex + 1} de {galleryImages.length}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

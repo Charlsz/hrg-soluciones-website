@@ -31,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
               <img 
                 src="/whiteb_hrglogo.jpg" 
                 alt="HRG Soluciones Logo" 
-                className="h-10 w-auto"
+                className="h-25 w-auto"
               />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
