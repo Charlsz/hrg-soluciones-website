@@ -115,7 +115,7 @@ hrg-soluciones-website/
 
 <div align="center">
 
-**Desarrollado con ❤️ para HRG Soluciones S.A.S**
+**Desarrollado para HRG Soluciones S.A.S**
 
 [Sitio Web](https://hrgsoluciones.com) | [Contacto](mailto:administracion@hrgsoluciones.com)
 
