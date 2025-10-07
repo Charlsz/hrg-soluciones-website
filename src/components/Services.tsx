@@ -100,6 +100,9 @@ const Services: React.FC = () => {
     'WhatsApp Image 2025-10-05 at 17.23.43 (3).jpeg',
     'WhatsApp Image 2025-10-05 at 17.23.43 (4).jpeg',
     'WhatsApp Image 2025-10-05 at 17.23.43 (5).jpeg',
+    'WhatsApp Image 2025-10-07 at 12.08.05.jpeg',
+    'WhatsApp Image 2025-10-07 at 12.08.06.jpeg',
+    'WhatsApp Image 2025-10-07 at 12.10.31.jpeg',
   ];
 
   // Gallery functions
